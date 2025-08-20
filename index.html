@@ -70,6 +70,37 @@
             animation: float-text 4s ease-in-out infinite;
             font-weight: 800; /* Hacemos la fuente más gruesa para el efecto */
         }
+        
+        /* Contenedor para la imagen y la leyenda */
+        .sample-image-container {
+            position: relative;
+            overflow: hidden; /* Asegura que la leyenda no se salga de los bordes redondeados */
+            border-radius: 0.5rem; /* Mismo borde que la imagen */
+        }
+        
+        /* Leyenda de muestra */
+        .sample-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .sample-image-container:hover .sample-overlay {
+            opacity: 1;
+        }
     </style>
 </head>
 <body class="bg-neutral text-gray-800">
@@ -163,8 +194,14 @@
                         </div>
                     </div>
                     <div class="grid grid-cols-1 gap-6">
-                        <img src="diploma.jpeg" alt="Diploma del curso" class="rounded-lg shadow-xl w-full h-auto">
-                        <img src="carnetmed.jpeg" alt="Carnet del curso" class="rounded-lg shadow-xl w-full h-auto">
+                        <div class="sample-image-container shadow-xl">
+                            <img src="diploma.jpeg" alt="Diploma del curso" class="rounded-lg w-full h-auto filter blur-sm">
+                            <div class="sample-overlay">IMAGEN DE MUESTRA</div>
+                        </div>
+                        <div class="sample-image-container shadow-xl">
+                            <img src="carnetmed.jpeg" alt="Carnet del curso" class="rounded-lg w-full h-auto filter blur-sm">
+                            <div class="sample-overlay">IMAGEN DE MUESTRA</div>
+                        </div>
                     </div>
                 </div>
                  <p class="mt-8 text-sm text-gray-600">Incluye seminarios gratuitos con diplomas arancelados.</p>
@@ -192,12 +229,14 @@
                 <div class="bg-primary text-secondary font-bold p-4 rounded-lg inline-block mb-8 shadow-lg">
                     🎁 ¡20% de descuento abonando en EFECTIVO, DEPÓSITO O TRANSFERENCIA!
                 </div>
-                <div class="space-y-4">
-                    <a href="https://chat.whatsapp.com/GPn8yNk7aj26g7ynqhAiXR" target="_blank" class="bg-accent text-white font-headings font-semibold py-4 px-10 rounded-full text-xl hover:bg-opacity-90 transition-transform transform hover:scale-105 shadow-lg block max-w-md mx-auto">
+                <div class="max-w-md mx-auto space-y-4">
+                    <a href="https://chat.whatsapp.com/GPn8yNk7aj26g7ynqhAiXR" target="_blank" class="bg-accent text-white font-headings font-semibold py-4 px-10 rounded-full text-xl hover:bg-opacity-90 transition-transform transform hover:scale-105 shadow-lg block w-full">
                         ¡Unirme al Grupo de Inscripción!
                     </a>
-                    <div class="text-secondary">
-                        <p class="font-bold">O contacta a un asesor al WhatsApp 2241 566930</p>
+                    <a href="https://wa.link/r3gtqf" target="_blank" class="bg-green-600 text-white font-headings font-semibold py-3 px-8 rounded-full text-lg hover:bg-green-700 transition-transform transform hover:scale-105 shadow-lg block w-full">
+                        Contactar a un Asesor
+                    </a>
+                    <div class="text-secondary pt-2">
                         <p class="text-sm">Horario de Atención: Lunes a Sábado de 9:00 a 21:00 hs.</p>
                     </div>
                 </div>
@@ -216,7 +255,7 @@
                     <p class="text-sm opacity-80">Presidente Dr. ALDO JOSEPH MP14654</p>
                 </div>
                 <div class="font-semibold">
-                    <img src="https://placehold.co/150x80/FFFFFF/000000?text=Logo+Colbert" alt="Logo Fundacion Colbert" class="h-20 mx-auto mb-2">
+                    <img src="colbertologo.png" alt="Logo Fundacion Colbert" class="h-20 mx-auto mb-2">
                     <p>🔵 FUNDACION UNIVERSITARIA COLBERT</p>
                     <p class="text-sm opacity-80">Nro. Resolución 383 C/21</p>
                 </div>
