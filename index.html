@@ -17,6 +17,7 @@
                         'secondary': '#5B21B6',    // Violeta Intenso
                         'accent': '#F59E0B',       // Amarillo Dorado
                         'neutral': '#EDE9FE',      // Lila Claro
+                        'white': '#FFFFFF',
                     },
                     fontFamily: {
                         'headings': ['Montserrat', 'sans-serif'],
@@ -33,34 +34,29 @@
         }
         body {
             font-family: 'Lora', serif;
+            background-color: #EDE9FE;
         }
 
         /* Efecto 3D para el texto del H1 */
         @keyframes float-text {
             0% {
                 text-shadow: 
-                    0px 1px 0px #4c1d95,
-                    0px 2px 0px #4c1d95,
-                    0px 3px 0px #4c1d95,
-                    0px 4px 0px #4c1d95,
+                    0px 1px 0px #4c1d95, 0px 2px 0px #4c1d95,
+                    0px 3px 0px #4c1d95, 0px 4px 0px #4c1d95,
                     0px 5px 10px rgba(0,0,0,0.2);
                 transform: translateY(0px);
             }
             50% {
                 text-shadow: 
-                    0px 1px 0px #4c1d95,
-                    0px 2px 0px #4c1d95,
-                    0px 3px 0px #4c1d95,
-                    0px 4px 0px #4c1d95,
+                    0px 1px 0px #4c1d95, 0px 2px 0px #4c1d95,
+                    0px 3px 0px #4c1d95, 0px 4px 0px #4c1d95,
                     0px 8px 15px rgba(0,0,0,0.3);
                 transform: translateY(-3px);
             }
             100% {
                 text-shadow: 
-                    0px 1px 0px #4c1d95,
-                    0px 2px 0px #4c1d95,
-                    0px 3px 0px #4c1d95,
-                    0px 4px 0px #4c1d95,
+                    0px 1px 0px #4c1d95, 0px 2px 0px #4c1d95,
+                    0px 3px 0px #4c1d95, 0px 4px 0px #4c1d95,
                     0px 5px 10px rgba(0,0,0,0.2);
                 transform: translateY(0px);
             }
@@ -68,56 +64,57 @@
 
         .text-3d-effect {
             animation: float-text 4s ease-in-out infinite;
-            font-weight: 800; /* Hacemos la fuente más gruesa para el efecto */
+            font-weight: 800;
         }
         
         /* Contenedor para la imagen y la leyenda */
         .sample-image-container {
             position: relative;
-            overflow: hidden; /* Asegura que la leyenda no se salga de los bordes redondeados */
-            border-radius: 0.5rem; /* Mismo borde que la imagen */
+            overflow: hidden;
+            border-radius: 0.5rem;
         }
         
-        /* Leyenda de muestra */
         .sample-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 1.5rem;
-            text-align: center;
-            opacity: 0;
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            display: flex; align-items: center; justify-content: center;
+            background-color: rgba(0, 0, 0, 0.5); color: white;
+            font-family: 'Montserrat', sans-serif; font-weight: 700;
+            font-size: 1.5rem; text-align: center; opacity: 0;
             transition: opacity 0.3s ease;
         }
         
-        .sample-image-container:hover .sample-overlay {
-            opacity: 1;
-        }
+        .sample-image-container:hover .sample-overlay { opacity: 1; }
 
         /* Estilos para el contador */
         #countdown div {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 1rem;
-            border-radius: 0.5rem;
-            backdrop-filter: blur(5px);
+            background: rgba(255, 255, 255, 0.2); padding: 1rem;
+            border-radius: 0.5rem; backdrop-filter: blur(5px);
             border: 1px solid rgba(255, 255, 255, 0.3);
         }
         #countdown span {
-            font-size: 2.5rem;
-            font-weight: 800;
+            font-size: 2.5rem; font-weight: 800;
             font-family: 'Montserrat', sans-serif;
         }
         #countdown p {
-            font-size: 0.8rem;
-            text-transform: uppercase;
+            font-size: 0.8rem; text-transform: uppercase;
+        }
+        
+        /* Divisores de sección curvados */
+        .wave-divider {
+            position: relative;
+            background: #EDE9FE; /* Color de fondo de la sección anterior */
+        }
+        .wave-divider svg {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+        }
+        .wave-divider-top {
+            transform: rotate(180deg);
+            top: -1px;
+            bottom: auto;
         }
     </style>
 </head>
@@ -132,7 +129,6 @@
             <p class="text-lg md:text-xl max-w-3xl mx-auto mb-6 text-secondary/90 font-semibold">Aprende a actuar con confianza en momentos de crisis y protege el bienestar emocional de las personas.</p>
             <p class="max-w-2xl mx-auto mb-4"><strong>Duración:</strong> 4 meses. <br><strong>Comienzo:</strong> Martes 9 de Septiembre. <br><strong>Clases:</strong> Jueves 20 Hrs.</p>
             
-            <!-- CONTADOR -->
             <div id="countdown" class="flex justify-center gap-4 md:gap-8 my-8">
                 <div><span id="days">00</span><p>Días</p></div>
                 <div><span id="hours">00</span><p>Horas</p></div>
@@ -152,21 +148,18 @@
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl md:text-4xl font-bold text-center text-secondary mb-12">Transforma tu Capacidad de Ayuda</h2>
                 <div class="grid md:grid-cols-3 gap-8">
-                    <!-- Benefit Card 1 -->
                     <div class="bg-white p-8 rounded-lg shadow-lg text-center transform hover:-translate-y-2 transition-transform border-b-4 border-primary">
-                        <div class="text-5xl mb-4">🤝</div>
+                        <svg class="w-16 h-16 mx-auto mb-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a2 2 0 01-2-2V4a2 2 0 012-2h8a2 2 0 012 2v4z"></path></svg>
                         <h3 class="text-xl font-bold text-secondary mb-3">De Espectador a Apoyo Eficaz</h3>
                         <p>Aprende a escuchar de una forma que conecta y calma. Descubre qué decir y qué no decir para generar un espacio seguro al instante.</p>
                     </div>
-                    <!-- Benefit Card 2 -->
                     <div class="bg-white p-8 rounded-lg shadow-lg text-center transform hover:-translate-y-2 transition-transform border-b-4 border-primary">
-                        <div class="text-5xl mb-4">🧠</div>
+                        <svg class="w-16 h-16 mx-auto mb-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
                         <h3 class="text-xl font-bold text-secondary mb-3">Claridad y Decisión Bajo Presión</h3>
-                        <p>Domina el protocolo ABCDE para identificar y priorizar necesidades urgentes, obteniendo claridad en medio del caos para ofrecer la ayuda más efectiva.</p>
+                        <p>Domina el protocolo ABCDE para identificar y priorizar necesidades urgentes, obteniendo claridad en medio del caos.</p>
                     </div>
-                    <!-- Benefit Card 3 -->
                     <div class="bg-white p-8 rounded-lg shadow-lg text-center transform hover:-translate-y-2 transition-transform border-b-4 border-primary">
-                        <div class="text-5xl mb-4">❤️</div>
+                        <svg class="w-16 h-16 mx-auto mb-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
                         <h3 class="text-xl font-bold text-secondary mb-3">Cuida de Ti Mientras Ayudas</h3>
                         <p>Adquiere estrategias de autocuidado y resiliencia para prevenir el desgaste y el "burnout", asegurando tu bienestar a largo plazo.</p>
                     </div>
@@ -174,16 +167,26 @@
             </div>
         </section>
 
-        <!-- SPECIAL EVENT SECTION -->
-        <section id="special-event" class="py-20 bg-white">
+        <!-- WHO IS THIS FOR SECTION -->
+        <div class="wave-divider">
+            <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="wave-divider-top"><path d="M0 23.9033C35.8333 15.2366 107.5 0 180 0C324 0 333 48 489 48C645 48 724.5 0 873 0C1021.5 0 1111.5 48 1260 48C1333.5 48 1404.17 31.9033 1440 23.9033V100H0V23.9033Z" fill="#FFFFFF"/></svg>
+        </div>
+        <section id="who-is-it-for" class="py-20 bg-white">
             <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-4">Evento Especial: Prácticas en Dolores</h2>
-                <p class="max-w-3xl mx-auto text-lg mb-8">Participa en nuestro exclusivo Teatro de Operaciones en Dolores, **Febrero 2026**. Una oportunidad única para aplicar tus habilidades en escenarios realistas. ¡Cupos limitados!</p>
-                <a href="https://instructormap.github.io/Teatro-de-Operaciones-Dolores-Bajo-el-Agua/" target="_blank" class="bg-secondary text-white font-headings font-semibold py-3 px-8 rounded-full text-lg hover:bg-opacity-90 transition-transform transform hover:scale-105 shadow-lg">
-                    Más Info sobre las Prácticas
-                </a>
+                <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-4">¿Para Quién es Este Curso?</h2>
+                <p class="max-w-3xl mx-auto text-lg mb-8">Esta formación es ideal para cualquier persona que desee estar preparada para ofrecer una primera respuesta emocional efectiva.</p>
+                <div class="flex flex-wrap justify-center gap-4 text-secondary font-semibold">
+                    <span class="bg-neutral py-2 px-4 rounded-full">Docentes y Educadores</span>
+                    <span class="bg-neutral py-2 px-4 rounded-full">Personal de Seguridad y Emergencias</span>
+                    <span class="bg-neutral py-2 px-4 rounded-full">Voluntarios y Líderes Comunitarios</span>
+                    <span class="bg-neutral py-2 px-4 rounded-full">Profesionales de la Salud</span>
+                    <span class="bg-neutral py-2 px-4 rounded-full">Público General</span>
+                </div>
             </div>
         </section>
+        <div class="wave-divider" style="background: #FFFFFF;">
+            <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 23.9033C35.8333 15.2366 107.5 0 180 0C324 0 333 48 489 48C645 48 724.5 0 873 0C1021.5 0 1111.5 48 1260 48C1333.5 48 1404.17 31.9033 1440 23.9033V100H0V23.9033Z" fill="#EDE9FE"/></svg>
+        </div>
 
         <!-- INSTRUCTOR SECTION -->
         <section id="instructor" class="py-20 bg-neutral">
@@ -200,8 +203,35 @@
             </div>
         </section>
         
+        <!-- TESTIMONIALS SECTION -->
+        <div class="wave-divider">
+            <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="wave-divider-top"><path d="M0 23.9033C35.8333 15.2366 107.5 0 180 0C324 0 333 48 489 48C645 48 724.5 0 873 0C1021.5 0 1111.5 48 1260 48C1333.5 48 1404.17 31.9033 1440 23.9033V100H0V23.9033Z" fill="#FFFFFF"/></svg>
+        </div>
+        <section id="testimonials" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-secondary mb-12">La Voz de Nuestros Egresados</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-neutral p-8 rounded-lg shadow-lg">
+                        <p class="text-lg italic mb-4">"Aprendí más en 3 meses que en años de teoría. Las herramientas son prácticas y, lo más importante, aprendí a cuidarme para poder seguir ayudando."</p>
+                        <p class="font-bold font-headings text-secondary">- Juan Pérez, Seguridad Privada</p>
+                    </div>
+                    <div class="bg-neutral p-8 rounded-lg shadow-lg">
+                        <p class="text-lg italic mb-4">"Este curso me dio la confianza que necesitaba para actuar en lugar de paralizarme. La metodología ABCDE es un salvavidas."</p>
+                        <p class="font-bold font-headings text-secondary">- María Rodriguez, Docente</p>
+                    </div>
+                    <div class="bg-neutral p-8 rounded-lg shadow-lg">
+                        <p class="text-lg italic mb-4">"Fundamental. No solo para profesionales. Todos deberían tener esta formación para poder apoyar a su familia, amigos y comunidad."</p>
+                        <p class="font-bold font-headings text-secondary">- Carlos Sánchez, Voluntario Comunitario</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="wave-divider" style="background: #FFFFFF;">
+            <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 23.9033C35.8333 15.2366 107.5 0 180 0C324 0 333 48 489 48C645 48 724.5 0 873 0C1021.5 0 1111.5 48 1260 48C1333.5 48 1404.17 31.9033 1440 23.9033V100H0V23.9033Z" fill="#EDE9FE"/></svg>
+        </div>
+
         <!-- GALLERY SECTION -->
-        <section id="gallery" class="py-20 bg-white">
+        <section id="gallery" class="py-20 bg-neutral">
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl md:text-4xl font-bold text-center text-secondary mb-12">Una Mirada a Nuestra Formación</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -224,6 +254,23 @@
             </div>
         </section>
 
+        <!-- SPECIAL EVENT SECTION -->
+        <div class="wave-divider">
+            <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="wave-divider-top"><path d="M0 23.9033C35.8333 15.2366 107.5 0 180 0C324 0 333 48 489 48C645 48 724.5 0 873 0C1021.5 0 1111.5 48 1260 48C1333.5 48 1404.17 31.9033 1440 23.9033V100H0V23.9033Z" fill="#FFFFFF"/></svg>
+        </div>
+        <section id="special-event" class="py-20 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-4">Evento Especial: Prácticas en Dolores</h2>
+                <p class="max-w-3xl mx-auto text-lg mb-8">Participa en nuestro exclusivo Teatro de Operaciones en Dolores, **Febrero 2026**. Una oportunidad única para aplicar tus habilidades en escenarios realistas. ¡Cupos limitados!</p>
+                <a href="https://instructormap.github.io/Teatro-de-Operaciones-Dolores-Bajo-el-Agua/" target="_blank" class="bg-secondary text-white font-headings font-semibold py-3 px-8 rounded-full text-lg hover:bg-opacity-90 transition-transform transform hover:scale-105 shadow-lg">
+                    Quiero Saber Más del Teatro de Operaciones
+                </a>
+            </div>
+        </section>
+        <div class="wave-divider" style="background: #FFFFFF;">
+            <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 23.9033C35.8333 15.2366 107.5 0 180 0C324 0 333 48 489 48C645 48 724.5 0 873 0C1021.5 0 1111.5 48 1260 48C1333.5 48 1404.17 31.9033 1440 23.9033V100H0V23.9033Z" fill="#EDE9FE"/></svg>
+        </div>
+
         <!-- CERTIFICATION SECTION -->
         <section id="certification" class="py-20 bg-neutral">
             <div class="container mx-auto px-6 text-center">
@@ -245,11 +292,11 @@
                         </div>
                     </div>
                     <div class="grid grid-cols-1 gap-6">
-                        <div class="sample-image-container shadow-xl">
+                        <div class="sample-image-container shadow-xl transform -rotate-2 hover:rotate-0 transition-transform">
                             <img src="diploma.jpeg" alt="Diploma del curso" class="rounded-lg w-full h-auto filter blur-sm">
                             <div class="sample-overlay">IMAGEN DE MUESTRA</div>
                         </div>
-                        <div class="sample-image-container shadow-xl">
+                        <div class="sample-image-container shadow-xl transform rotate-2 hover:rotate-0 transition-transform">
                             <img src="carnetmed.jpeg" alt="Carnet del curso" class="rounded-lg w-full h-auto filter blur-sm">
                             <div class="sample-overlay">IMAGEN DE MUESTRA</div>
                         </div>
@@ -260,6 +307,9 @@
         </section>
 
         <!-- CTA / PRICING SECTION -->
+        <div class="wave-divider">
+            <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="wave-divider-top"><path d="M0 23.9033C35.8333 15.2366 107.5 0 180 0C324 0 333 48 489 48C645 48 724.5 0 873 0C1021.5 0 1111.5 48 1260 48C1333.5 48 1404.17 31.9033 1440 23.9033V100H0V23.9033Z" fill="#FFFFFF"/></svg>
+        </div>
         <section id="cta" class="py-20 bg-white text-center">
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-8">Inversión en tu Formación</h2>
@@ -277,9 +327,10 @@
                         <p class="text-4xl font-bold text-secondary font-headings my-2">$10.000</p>
                     </div>
                 </div>
-                <div class="bg-primary text-secondary font-bold p-4 rounded-lg inline-block mb-8 shadow-lg">
+                <div class="bg-primary text-secondary font-bold p-4 rounded-lg inline-block mb-4 shadow-lg">
                     🎁 ¡20% de descuento abonando en EFECTIVO, DEPÓSITO O TRANSFERENCIA!
                 </div>
+                <p class="text-secondary font-semibold mb-8">Los cupos con descuento se están agotando. ¡Asegura el tuyo antes de que el contador llegue a cero!</p>
                 <div class="max-w-md mx-auto space-y-4">
                     <a href="https://chat.whatsapp.com/GPn8yNk7aj26g7ynqhAiXR" target="_blank" class="bg-accent text-white font-headings font-semibold py-4 px-10 rounded-full text-xl hover:bg-opacity-90 transition-transform transform hover:scale-105 shadow-lg block w-full">
                         ¡Unirme al Grupo de Inscripción!
